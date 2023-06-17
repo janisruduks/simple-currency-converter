@@ -1,4 +1,4 @@
-package io.codelex.custom.currencyconverter;
+package io.codelex;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

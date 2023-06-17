@@ -1,4 +1,4 @@
-package io.codelex.custom.currencyconverter;
+package io.codelex;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -20,7 +20,9 @@ public class RatesResponse {
     public BigDecimal getConversion(String currencyFrom, String currencyTo, BigDecimal amount) {
         BigDecimal valueFrom = rates.get(currencyFrom);
         BigDecimal valueTo = rates.get(currencyTo);
-        return amount.divide(valueFrom, 10, RoundingMode.HALF_EVEN).multiply(valueTo).setScale(2, RoundingMode.HALF_EVEN);
+        return amount.divide(valueFrom, 10, RoundingMode.HALF_EVEN)
+                .multiply(valueTo)
+                .setScale(2, RoundingMode.HALF_EVEN);
     }
 
    public boolean doesRateExists(String currency) {
