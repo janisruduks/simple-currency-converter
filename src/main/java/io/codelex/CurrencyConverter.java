@@ -5,7 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 public class CurrencyConverter {
@@ -14,8 +15,8 @@ public class CurrencyConverter {
 
     static {
         try {
-            resp = mapper.readValue(new URL("https://api.exchangerate.host/latest"), RatesResponse.class);
-        } catch (IOException e) {
+            resp = mapper.readValue(new URI("https://api.exchangerate.host/latest").toURL(), RatesResponse.class);
+        } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
